@@ -1,0 +1,380 @@
+<!--
+Author: ColorliC
+Author URL: https://colorliC.com
+License: Creative Commons AttriCution 3.0 Unported
+License URL: http://creativecommons.org/licenses/Cy/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>Students Registration</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- Custom Theme files -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+</head>
+<style>
+	
+</style>
+<body>
+    <div class='logout'>
+	    <h4 style="text-align:left; margin-top:0%;margin-left:0%; background-color:white"><a href="{% url 'students:login' %}">Logout</a></h4>
+	</div>
+    <div class='welcome'>
+	    <h3> Welcome To Kings comprehensive college </h3>
+	</div>
+	<div class='records'>
+		{% for record in records %}
+		<h4> Name: {{record.user.first_name}} {{record.user.last_name}}</h4>
+		<h4> Class: {{record.Class}}</h4>
+		<h4> Department: {{record.dep}}</h4>
+		<h4> Age: {{record.age}}</h4>
+		{% endfor %}
+	</div>
+	<div class='agric' style=''>					
+		<table style="width:50%">
+			<tr>
+				<th>Subjects</th>
+				<th>Marks</th>
+				<th>Grade</th>
+				<th>Remarks</th>
+			</tr>
+			<div class='agric-style' >
+				<tr>
+					<td><p > Agricultural Sc.</p></td>
+					<td>
+						{% for record in records %}
+						    {% if record.agric > '40' %}
+						    <p>{{ record.agric|floatformat:'0'}}</p>
+							{% elif  record.agric < '40' %}
+							<p style ="color:red">{{ record.agric|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.agric >= '70' %} A</p>
+							<p > {% elif record.agric >= '60' %} B</p>
+							<p > {% elif record.agric >= '50' %} C</p>
+							<p > {% elif record.agric >= '45' %} D</p>
+							<p > {% elif record.agric >= '40' %} E</p>
+							{% elif record.agric >= '0' %}
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.agric >= '70' %} Excellent</p>
+							<p > {% elif record.agric >= '60' %} Very Good</p>
+							<p > {% elif record.agric >= '50' %} Good</p>
+							<p > {% elif record.agric >= '45' %} Pass</p>
+							<p > {% elif record.agric >= '40' %} pass</p>
+							{% elif record.agric >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				<tr>
+					<td><p > Mathematics</p></td>
+					<td>
+						{% for record in records %}
+						    {% if record.maths > '40' %}
+						    <p>{{ record.maths|floatformat:'0'}}</p>
+							{% elif  record.maths < '40' %}
+							<p style ="color:red">{{ record.maths|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.maths >= '70' %} A</p>
+							<p > {% elif record.maths >= '60' %} B</p>
+							<p > {% elif record.maths >= '50' %} C</p>
+							<p > {% elif record.maths >= '45' %} D</p>
+							<p > {% elif record.maths >= '40' %} E</p>
+							{% elif record.maths >= '0' %}
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.maths >= '70' %} Excellent</p>
+							<p > {% elif record.maths >= '60' %} Very Good</p>
+							<p > {% elif record.maths >= '50' %} Good</p>
+							<p > {% elif record.maths >= '45' %} Pass</p>
+							<p > {% elif record.maths >= '40' %} pass</p>
+							{% elif record.maths >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				</tr>
+				<tr>
+					<td><p >Biology</p></td>
+					<td>
+						{% for record in records %}
+						    {% if record.bio > '40' %}
+						    <p>{{ record.bio|floatformat:'0'}}</p>
+							{% elif  record.bio < '40' %}
+							<p style ="color:red">{{ record.bio|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.bio >= '70' %} A</p>
+							<p > {% elif record.bio >= '60' %} B</p>
+							<p > {% elif record.bio >= '50' %} C</p>
+							<p > {% elif record.bio >= '45' %} D</p>
+							<p > {% elif record.bio >= '40' %} E</p>
+							{% elif record.bio >= '0' %}
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.bio >= '70' %} Excellent</p>
+							<p > {% elif record.bio >= '60' %} Very Good</p>
+							<p > {% elif record.bio >= '50' %} Good</p>
+							<p > {% elif record.bio >= '45' %} Pass</p>
+							<p > {% elif record.bio >= '40' %} pass</p>
+							{% elif record.bio >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				</tr>
+				<tr>
+					<td><p >Chemistry</p></td>
+					<td>
+						{% for record in records %}
+						    {% if record.chem > '40' %}
+						    <p>{{ record.chem|floatformat:'0'}}</p>
+							{% elif  record.chem < '40' %}
+							<p style ="color:red">{{ record.chem|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.chem >= '70' %} A</p>
+							<p > {% elif record.chem >= '60' %} B</p>
+							<p > {% elif record.chem >= '50' %} C</p>
+							<p > {% elif record.chem >= '45' %} D</p>
+							<p > {% elif record.chem >= '40' %} E</p>
+							{% elif record.chem < '40' %}
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.chem >= '70' %} Excellent</p>
+							<p > {% elif record.chem >= '60' %} Very Good</p>
+							<p > {% elif record.chem >= '50' %} Good</p>
+							<p > {% elif record.chem >= '45' %} Pass</p>
+							<p > {% elif record.chem >= '40' %} pass</p>
+							{% elif record.chem >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				</tr>
+				<tr>
+					<td><p >Further Mathematics</p></td>
+					<td>
+						{% for record in records %}
+						    {% if record.fm > '40' %}
+						    <p>{{ record.fm|floatformat:'0'}}</p>
+							{% elif  record.fm < '40' %}
+							<p style ="color:red">{{ record.fm|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.fm >= '70' %} A</p>
+							<p > {% elif record.fm >= '60' %} B</p>
+							<p > {% elif record.fm >= '50' %} C</p>
+							<p > {% elif record.fm >= '45' %} D</p>
+							<p > {% elif record.fm >= '40' %} E</p>
+							{% elif record.fm < '40' %}
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.fm >= '70' %} Excellent</p>
+							<p > {% elif record.fm >= '60' %} Very Good</p>
+							<p > {% elif record.fm >= '50' %} Good</p>
+							<p > {% elif record.fm >= '45' %} Pass</p>
+							<p > {% elif record.fm >= '40' %} pass</p>
+							{% elif record.fm >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				</tr>
+				
+				<tr>
+					<td><p >Physics</p></td>
+					<td>
+						{% for record in records %}
+						    {% if record.phy > '40' %}
+						    <p>{{ record.phy|floatformat:'0'}}</p>
+							{% elif  record.phy < '40' %}
+							<p style ="color:red">{{ record.phy|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.phy >= '70' %} A</p>
+							<p > {% elif record.phy >= '60' %} B</p>
+							<p > {% elif record.phy >= '50' %} C</p>
+							<p > {% elif record.phy >= '45' %} D</p>
+							<p > {% elif record.phy >= '40' %} E</p>
+							{% elif record.phy >= '0' %} 
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.phy >= '70' %} Excellent</p>
+							<p > {% elif record.phy >= '60' %} Very Good</p>
+							<p > {% elif record.phy >= '50' %} Good</p>
+							<p > {% elif record.phy >= '45' %} Pass</p>
+							<p > {% elif record.phy >= '40' %} pass</p>
+							{% elif record.phy >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				</tr>
+				
+				<tr>
+					<td><p > Computer</p></td>
+					<td>
+						{% for record in records %}
+						    {% if record.comp > '40' %}
+						    <p>{{ record.comp|floatformat:'0'}}</p>
+							{% elif  record.comp < '40' %}
+							<p style ="color:red">{{ record.comp|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.comp >= '70' %} A</p>
+							<p > {% elif record.comp >= '60' %} B</p>
+							<p > {% elif record.comp >= '50' %} C</p>
+							<p > {% elif record.comp >= '45' %} D</p>
+							<p > {% elif record.comp >= '40' %} E</p>
+							{% elif record.comp >= '0' %}
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.comp >= '70' %} Excellent</p>
+							<p > {% elif record.comp >= '60' %} Very Good</p>
+							<p > {% elif record.comp >= '50' %} Good</p>
+							<p > {% elif record.comp >= '45' %} Pass</p>
+							<p > {% elif record.comp >= '40' %} pass</p>
+							{% elif record.comp >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				</tr>
+				<tr>
+					<td><p >English</p></td>
+					<td>
+						{% for record in records %}
+						    {% if record.english > '40' %}
+						    <p>{{ record.english|floatformat:'0'}}</p>
+							{% elif  record.english < '40' %}
+							<p style ="color:red">{{ record.english|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.english >= '70' %} A</p>
+							<p > {% elif record.english >= '60' %} B</p>
+							<p > {% elif record.english >= '50' %} C</p>
+							<p > {% elif record.english >= '45' %} D</p>
+							<p > {% elif record.english >= '40' %} E</p>
+							{% elif record.english >= '0' %}
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.english >= '70' %} Excellent</p>
+							<p > {% elif record.english >= '60' %} Very Good</p>
+							<p > {% elif record.english >= '50' %} Good</p>
+							<p > {% elif record.english >= '45' %} Pass</p>
+							<p > {% elif record.english >= '40' %} pass</p>
+							{% elif record.english >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				</tr>
+				<tr>
+					<td><p >Geography</p></td>
+					<td>
+						{% for record in records %}
+							{% if record.geog > '40' %}
+							<p>{{ record.geog|floatformat:'0'}}</p>
+							{% elif  record.geog < '40' %}
+							<p style ="color:red">{{ record.geog|floatformat:'0' }}</p>
+							{% endif %}
+						{% endfor%}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.geog >= '70' %} A</p>
+							<p > {% elif record.geog >= '60' %} B</p>
+							<p > {% elif record.geog >= '50' %} C</p>
+							<p > {% elif record.geog >= '45' %} D</p>
+							<p > {% elif record.geog >= '40' %} E</p>
+							{% elif record.geog >= '0' %}
+							<p style ="color:red"> F</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+					<td>
+						{% for record in records %}
+							<p >{% if record.geog >= '70' %} Excellent</p>
+							<p > {% elif record.geog >= '60' %} Very Good</p>
+							<p > {% elif record.geog >= '50' %} Good</p>
+							<p > {% elif record.geog >= '45' %} Pass</p>
+							<p > {% elif record.geog >= '40' %} pass</p>
+							{% elif record.geog >= '0' %}
+							<p style ="color:red"> Fail</p>
+							<p>{% endif %}</p>	
+						{% endfor %}
+					</td>
+				</tr>
+			</div>
+		</table>
+	</div>
+	<div class='sign'>
+		<strong>Signed:</strong><br>
+		<span style='block'>Adewusi Adeleke</span><br>
+		<span>(Principal)</span><br>
+	</div>
+	
+		
+</body>
+</html>

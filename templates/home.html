@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title>Home page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+form,ul{margin:0;padding:0;}
+.nav ul{list-style:none;}
+.nav ul a{color:#999;text-decoration:none;}
+.nav {
+	background-color: white;
+	color: black;
+	padding-top: 1em;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+}
+.login{margin-left:auto;display:flex;}
+.login input,
+.login a,
+.login button{margin-left:10px;}
+.nav ul{display:flex;text-transform:uppercase;margin:1em 0 1em 1em;}
+.nav ul a{margin-left:15px;}
+.login button{
+	-webkit-appearance:none;
+	background:#000;
+	color:#fff;
+	padding:5px 10px;
+	border-radius:10px;
+	border:none;
+}
+.login form{display:flex;flex-wrap:wrap;align-items:center;}
+.login a{padding:5px 2px;text-decoration:none;color:#000;}
+.login input{background:#eee;color:#333;border:none;padding:5px;}
+
+</style>
+
+</head>
+<body>
+<header>
+  <nav class="nav"> <a class="logo" href="#"> </a>
+    <div class="login">
+      <!--<form action="includes/login.inc.php" method="post">
+        <input type="text" name="mailuid" placeholder="Username or Email...">
+        <input type="password" name="pwd" placeholder="Password...">-->
+      <a style='font-weight:bolder;color:blue' href="{% url 'students:signup' %}"> Signup</a>
+      <!--</form>-->
+      <a style='font-weight:bolder;color:blue' href="{% url 'students:login' %}"> Login</a>
+      <!--<form action="includes/logout.inc.php" method="post">-->
+      <a style='font-weight:bolder;color:blue' href="" >Contact Us</a>
+      <!--</form>-->
+    </div>
+  </nav>
+</header>
+
+	<h1 style='color:skyblue;text-align:center'>Welcome To Kings College </h1>
+		
+	<h4>
+    <p style='color:red'>
+        Note:
+	</p>If you are a student of this school, Register with the right information by clicking signup at the top right corner	
+    </h4>
+</body>
+</html>

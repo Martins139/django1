@@ -1,0 +1,48 @@
+<!--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>Students Registration</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body style="text-align:center;background-color:white">
+<div>
+    <a style='font-weight:bolder;color:blue; margin-top:0%;margin-left:-95%' href="{% url 'students:home' %}" >Go Home</a>
+</div>
+<div>
+    {% for message in messages %}
+	<h3 style="color:lightgreen">{{message}}<h3>
+	{% endfor %}
+</div>
+	<div style="text-align:center;background-color:white" class="registration">
+	    <form action="#" method="post">
+		
+		    {% csrf_token %}
+			{% for field in form %}
+				<div class="form-group">
+					{{ field.label}}<br>
+					{{ field }}<br><br>
+				</div>
+				{% if field.errors %}
+				    <div style="color:red" class="alert alert.danger">
+					    {{field.errors}} 
+				    </div>
+                {% endif %}
+			{% endfor %}
+			<!--{{form.as_p}}-->
+			<button style="background-color:green;color:white" type="submit" class="btn btn-sucess" >Signup</button><br>
+		</form>
+	</div>
+	<div class='account'>
+	    <h4><p> Already have an account?<a href="{% url 'students:login' %}"> Login here</a> </p></h4>
+	</div>
+</body>
+</html>

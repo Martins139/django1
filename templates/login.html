@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title> Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- Custom Theme files -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+<div class='home'>
+    <h4><a href ='/'>Go back to homepage</a></h4>
+</div>
+<div style='margin-top:15%'>
+    
+	<form post='Login', method="post"> 
+	{% csrf_token %}
+	<span> Username: <input type='text' name="username" placeholder="Enter Username"></span><br><br>
+	<span>Password: <input type='text' name="password" placeholder="Enter Password"></span><br><br>
+	<button style="background-color:pink; border-color:blue" type="submit" >Login</button> 
+	<h4> Don't have an account yet?<a href="{% url 'students:signup' %}"> Register here</a></h4><br>
+	</form>	
+</div>
+<div style="margin-top:-2%;text-align:center;color:red">
+        {% for message in messages %}
+		<h4>{{message}}</h4>
+		{% endfor %}
+</div>
+
+</body>
+</html>  
+
