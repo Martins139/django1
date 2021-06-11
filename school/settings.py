@@ -141,4 +141,4 @@ MEDIA_ROOT=BASE_DIR/'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL='students.Myuser'
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
